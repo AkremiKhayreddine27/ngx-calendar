@@ -1,0 +1,36 @@
+<form [formGroup]="form">
+<div class="my-calendars-header">
+    <h6 class="pt-4 pb-2">My Calendars</h6>
+    <button class="btn btn-new-calendar" (click)="newCalendar.emit({})"><i class="fa fa-plus"></i></button>
+</div>  
+  <div *ngFor="let calendar of activeCalendars.controls; let i=index" class="pt-2 checkbox-div">
+      <label class="checkbox-container">{{ calendars[i].name }}
+          <input (change)="filter($event, calendar.source)" [formControl]="calendar" type="checkbox">
+          <span [style.backgroundColor]="calendars[i].color" class="checkmark"></span>
+      </label>
+      <div ngbDropdown>
+          <button class="btn-toggle" ngbDropdownToggle>
+              <i class="fa fa-ellipsis-v"></i>
+          </button>
+          <div ngbDropdownMenu>
+              <div class="colors">
+                  <input formControlName="color" type="hidden">                    
+                  <div 
+                  *ngFor="let color of colors"
+                  [style.backgroundColor]="color"
+                  (click)="setColor(color, calendars[i])"
+                  [class.active]="calendars[i].color === color"
+                  class="color"
+                  ></div> 
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="pt-2">
+      <input appCalendarImport type="file" name="file" id="file" class="inputfile" />
+      <label for="file"><i class="fa fa-upload pr-2"></i>Import</label>
+  </div>
+  <a appCalendarExport [calendars]="calendars" [events]="events" class="btn-export">
+      <i class="fa fa-download pr-2"></i> Export
+  </a>
+</form>

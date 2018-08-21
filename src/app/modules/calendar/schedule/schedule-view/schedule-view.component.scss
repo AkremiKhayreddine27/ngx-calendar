@@ -1,0 +1,54 @@
+.cal-schedule-view {
+    border-left: 1px solid #EBEEF2;
+    border-top: 1px solid #EBEEF2;
+    border-right: 1px solid #EBEEF2;
+    background-color: white;
+}
+.cal-schedule-day {
+    border-bottom: 1px solid #EBEEF2;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #555555;
+    display: flex;
+}
+.cal-schedule-events {
+    flex: 1;
+}
+.cal-schedule-event {
+    color: #555555;
+    padding: 5px;
+}
+.cal-schedule-event:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+.cal-schedule-event-header {
+    display: flex;
+}
+
+.cal-schedule-event-date {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: #555555;
+    padding-left: 25px;
+    min-width: 80px;
+}
+
+.cal-schedule-event-title {
+    font-size: 14px;
+    flex: 1;
+    color: #555555;
+}
+.cal-schedule-event-time {
+    font-size: 12px;
+    font-weight: normal;
+    min-width: 130px;
+    align-items: center;
+    color: #555555;
+}
+.cal-schedule-event-color {
+    height: 10px !important; 
+    width: 10px !important;
+    border-radius: 50%;
+}

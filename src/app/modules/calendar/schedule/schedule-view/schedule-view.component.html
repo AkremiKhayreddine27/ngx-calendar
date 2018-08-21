@@ -1,0 +1,28 @@
+<div class="cal-schedule-view">
+  <div class="cal-schedule-day" *ngFor="let day of view">
+      <div class="cal-schedule-event-date">
+          <div class="cal-schedule-event-date-day">{{ day.date | date:'EEE' }}</div>
+          <div class="cal-schedule-event-date-month">{{ day.date | date:'MMM d' }}</div>
+      </div>
+      <div class="cal-schedule-events">
+        <div *ngFor="let event of day.events" (click)="eventClicked.emit({event:event})" class="cal-schedule-event row">
+            <div class="col-lg-4 cal-schedule-event-header">
+                <div 
+                    [style.backgroundColor]="event.color ? event.color : event.calendar.color"
+                    class="cal-schedule-event-color mr-2">
+                </div>
+                <div class="cal-schedule-event-time" *ngIf="!event.allDay">
+                    {{ event.start | date:'hh:mm a' }} - {{ event.end | date:'hh:mm a' }}
+                </div>
+                <div class="cal-schedule-event-time" *ngIf="event.allDay">
+                    All day
+                </div>
+            </div>
+            <div class="cal-schedule-event-title col-lg-8">
+                {{ event.title }}
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+

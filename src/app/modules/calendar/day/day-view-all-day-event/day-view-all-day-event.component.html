@@ -1,0 +1,22 @@
+<ng-template
+#defaultTemplate
+let-event="event"
+let-eventClicked="eventClicked">
+<div
+  class="cal-all-day-event"
+  [style.backgroundColor]="event.color ? event.color : event.calendar.color"
+  (click)="eventClicked.emit({event: event})">
+  <calendar-event-action [event]="event"></calendar-event-action>
+  <calendar-event-title
+    [event]="event"
+    view="day">
+  </calendar-event-title>
+</div>
+</ng-template>
+<ng-template
+[ngTemplateOutlet]="defaultTemplate"
+[ngTemplateOutletContext]="{
+  event: event,
+  eventClicked: eventClicked
+}">
+</ng-template>

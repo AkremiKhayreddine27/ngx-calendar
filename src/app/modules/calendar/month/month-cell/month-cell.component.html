@@ -1,0 +1,23 @@
+<ng-template
+#defaultTemplate
+let-day="day"
+let-openDay="openDay"
+let-locale="locale">
+<div class="cal-cell">
+  <div class="cal-cell-top">
+      <span class="cal-day-number">{{ day.date | date: 'dd' }}</span>
+  </div>
+  <span class="cal-day-badge" *ngIf="day.badgeTotal > 2">{{ day.badgeTotal - 2 }} more ...</span>
+</div>
+</ng-template>
+<ng-template
+[ngTemplateOutlet]="defaultTemplate"
+[ngTemplateOutletContext]="{
+  day: day,
+  openDay: openDay,
+  locale: locale,
+  highlightDay: highlightDay,
+  unhighlightDay: unhighlightDay,
+  eventClicked: eventClicked
+}">
+</ng-template>

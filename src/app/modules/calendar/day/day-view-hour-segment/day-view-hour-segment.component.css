@@ -1,0 +1,38 @@
+.cal-hour-segment{
+    display: flex;
+    border-bottom: 1px solid #EBEEF2;
+    border-right: 1px solid #EBEEF2;
+    border-left: 1px solid #EBEEF2;
+}
+.cal-hour-segment.cal-after-hour-start .cal-time {
+    color: transparent;
+    border-bottom: 1px solid #EBEEF2;
+
+}
+.cal-hour-segment .cal-time {    
+    height: 30px;
+    font-size: 12px;
+    padding-left: 15px;
+    border-right: 1px solid #EBEEF2;
+    color: #555555;
+}
+
+
+.cal-hour-segment .cal-hour-segment-header:not(:last-child) {
+    border-right: 1px solid #EBEEF2;
+  }
+.cal-hour-segment .cal-time {
+    position: absolute;
+    width: 70px;
+    left: 0;
+}
+.cal-hour-segment .cal-hour-segment-header {
+    flex: 1;
+} 
+.cal-hour-segment:hover {
+    background-color: transparent;
+}
+
+.cal-hour-segment.cal-hour-start {
+    border-bottom: none;
+}

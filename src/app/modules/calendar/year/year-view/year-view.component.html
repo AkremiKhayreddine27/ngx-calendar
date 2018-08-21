@@ -1,0 +1,9 @@
+<ngb-datepicker [startDate]="startDate" (select)="daySelected($event)" [dayTemplate]="customDay" [displayMonths]="displayMonths" [navigation]="navigation"
+  [showWeekNumbers]="showWeekNumbers">
+</ngb-datepicker>
+<ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled" let-focused="focused">
+  <span class="custom-day" [class.focused]="focused" [class.bg-primary]="isToday(date)" [class.bg-grey]="isReserved(date)"
+    [class.hidden]="date.month !== currentMonth" [style.backgroundColor]="getColor(date)" [class.text-muted]="disabled">
+    {{ date.day }}
+  </span>
+</ng-template>

@@ -1,0 +1,38 @@
+<div class="col-md-3 flex-mobile-center">
+      <div class="btn-group">
+        <div
+          class="btn-circle"
+          appCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="viewDateChange.next(viewDate)">
+          <i class="fa fa-chevron-left"></i>
+        </div>
+        <div
+          class="btn btn-sm btn-today"
+          appCalendarToday
+          [(viewDate)]="viewDate"
+          (viewDateChange)="viewDateChange.next(viewDate)">
+          Today
+        </div>
+        <div
+          class="btn-circle"
+          appCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="viewDateChange.next(viewDate)">
+          <i class="fa fa-chevron-right"></i>
+        </div>
+      </div>
+</div>
+<div *ngIf="view === 'week' || view === 'month' || view === 'schedule' || view === 'year'" class="col-md-4 todate">
+      {{ viewDate | date: 'MMMM yyyy' }}
+</div>
+<div *ngIf="view === 'day'" class="col-md-4 todate">
+        {{ viewDate | date: 'EEEE dd MMMM yyyy' }}
+</div>
+<div class="col-md-5">
+  <select (change)="viewChange.emit($event.target.value)" class="custom-select">
+    <option [selected]="calendarView.value === view" *ngFor="let calendarView of views" [value]="calendarView.value">{{ calendarView.text }}</option>
+  </select>
+</div>

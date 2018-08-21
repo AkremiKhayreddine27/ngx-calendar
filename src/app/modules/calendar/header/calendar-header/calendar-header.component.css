@@ -1,0 +1,58 @@
+.calendar-import-export{
+    position: relative;
+    display: flex;
+}
+
+.todate {
+    color: #8F8F8F;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    border-radius :0; 
+    cursor: pointer;
+}
+.btn-today { 
+    background-color: #ffffff;
+    color: #8F8F8F;
+    cursor: pointer !important;
+}
+.btn-today:hover {
+    color: #555555 !important;
+}
+.btn-circle {
+    width: 41px;
+    height: 41px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #8F8F8F;
+}
+
+.btn-circle:hover {
+    background-color: #40DC7E;
+    color: white;
+}
+
+.btn-view {
+    color: #8F8F8F;
+    background-color: #ffffff;
+}
+
+.btn-view.active, .btn-view:hover {
+    background-color: #f2f2f2;
+}
+
+.btn-group {
+    align-items: center;
+}
+
+@media(max-width: 500px) {
+    .flex-mobile-center {
+        display: flex;
+        justify-content: center;
+    }
+}

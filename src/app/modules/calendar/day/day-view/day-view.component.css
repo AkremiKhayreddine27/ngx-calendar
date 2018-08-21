@@ -1,0 +1,36 @@
+.cal-day-view {
+  background-color: white;
+}
+.cal-day-view .cal-hour-rows {
+  width: 100%;
+  border: solid 1px #EBEEF2;
+  overflow-x: scroll;
+  position: relative;
+}
+  
+.cal-day-view .cal-hour {
+  background-color: white;
+}
+  
+.cal-event-container {
+  position: absolute;
+}
+
+.cal-day-view-header {
+  margin-left: 70px;
+  border: solid 1px #EBEEF2;
+  border-bottom: none !important;
+  padding-left: 15px;
+}
+
+.date-ee {
+  font-size: 14px;
+}
+.date-d {
+  font-weight: 900;
+  font-size: 20px;
+}
+calendar-day-view-event {
+  cursor: pointer;
+}
+  

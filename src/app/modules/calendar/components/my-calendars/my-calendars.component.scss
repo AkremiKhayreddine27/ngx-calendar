@@ -1,0 +1,177 @@
+.colors {
+    display: flex;
+    padding-top: 10px;
+}
+.color {
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background-color: #f4511e;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.color:hover {
+    border: 4px double #ffffff;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+.color.active {
+    border: 4px double #ffffff;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+/* The checkbox-container */
+.checkbox-container {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 90%;
+    min-height: 35px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 8px;
+    height: 13px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+ 
+.checkbox-div {
+    display: flex;
+
+}
+
+.btn-toggle {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+    color: #8f8f8f;
+}
+.btn-toggle:hover {
+    background-color: #f2f2f2;
+}
+
+
+
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    background-color: white;
+    display: inline-block;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+.inputfile + label:hover {
+    background-color: #f2f2f2;
+}
+
+.btn-export {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 38px;
+}
+.btn-export i , .inputfile + label i{
+    color: #8f8f8f !important;
+}
+.btn-export:hover {
+    background-color: #f2f2f2;
+}
+
+.my-calendars-header {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    h6 {
+        flex: 1;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .btn-new-calendar {
+        height: 25px;
+        width: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #555555;
+        background-color: #f2f2f2;
+        padding: 0 !important;
+    }
+    .btn-new-calendar:hover {
+        background-color: darken(#f2f2f2,5%);
+    }
+}

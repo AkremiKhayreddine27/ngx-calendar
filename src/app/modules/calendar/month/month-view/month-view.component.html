@@ -1,0 +1,78 @@
+<div class="cal-month-view">
+    <calendar-month-view-header
+      [days]="columnHeaders"
+      [locale]="locale">
+    </calendar-month-view-header>
+    <div class="cal-days" (mouseup)="mouseUpEvent($event)">
+        <div class="cal-row" *ngFor="let rowIndex of view.rowOffsets; let index = index">
+          <div *ngIf="rowIndex" class="cal-cell-row">
+            <div
+            class="cal-day-cell"
+            *ngFor="let day of rowIndex.days"
+            (mousemove)="$event.preventDefault();newEventTimesChanged.emit({event: event, end: false, isEventClicked: false});">
+              <calendar-month-cell
+                class="calendar-month-cell"
+                (mousedown)="monthCellClicked($event, event)" 
+                [class.cal-drag-over]="day.dragOver"
+                [ngClass]="{'isToday': day.isToday }"
+                [day]="day"
+                [event]="event"
+                (updateEvent)="event = $event.event;"
+                (newEvent)="event = $event.event;"
+                [openDay]="openDay"
+                [locale]="locale"
+                appMonthCellDrag 
+                dropDirective 
+                (dragenterEvent)="isEventClicked = false;"
+                (dropEvent)="eventDropped(day, $event)">
+              </calendar-month-cell>
+            </div>
+            <div *ngFor="let event of rowIndex.events">
+                <div
+                *ngIf="!event.hidden && event.event.draggable"
+                [class.month-event]="event.event.allDay"
+                [class.month-non-all-day-event]="!event.event.allDay"
+                [style.height]="20 + '%'"
+                [style.top]="event.top + '%'"
+                [style.backgroundColor]="event.event.color ? event.event.color : event.event.calendar.color"
+                [style.left]="event.left + '%'"
+                [style.width]="event.event.allDay ? event.width + '%' : 100/7 +'%'"
+                (mousedown)="isEventClicked = true;"
+                (click)="monthEventClicked($event, event.event)"
+                [dragDirective]='event.event'
+                [dragHightlight]="'highlight'">
+                <div
+                  *ngIf="!event.event.allDay"
+                  class="month-non-all-day-event-color"
+                  [style.backgroundColor]="event.event.color ? event.event.color : event.event.calendar.color">
+                </div>
+                <div class="month-event-title">
+                    {{ event.event.start | date : 'hh:mm a'}} {{ event.event.title }}
+                </div>
+                </div>
+                <div
+                *ngIf="!event.hidden && !event.event.draggable"
+                [class.month-event]="event.event.allDay"
+                [class.month-non-all-day-event]="!event.event.allDay"
+                [style.height]="20 + '%'"
+                [style.top]="event.top + '%'"
+                [style.backgroundColor]="event.event.color ? event.event.color : event.event.calendar.color"
+                [style.left]="event.left + '%'"
+                [style.width]="event.event.allDay ? event.width + '%' : 100/7 +'%'"
+                (mousedown)="isEventClicked = true;"
+                (click)="monthEventClicked($event, event.event)">
+                <div
+                  *ngIf="!event.event.allDay"
+                  class="month-non-all-day-event-color"
+                  [style.backgroundColor]="event.event.color ? event.event.color : event.event.calendar.color">
+                </div>
+                <div class="month-event-title">
+                    {{ event.event.start | date : 'hh:mm a'}} {{ event.event.title }}
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+  
